@@ -1,0 +1,234 @@
+<?php
+	if (isset($_POST["inp_submit"])) { 
+        $npm = $_POST["inp_npm"];
+        $pass = $_POST["inp_pass"];
+        echo $npm, $pass;
+		$cl2 = new controller_login();
+		$cl2->loginMember($npm, $pass);
+	}
+    ?>
+
+=================================================================
+login klik
+
+<a href="main_login.php?login=ok"><input type="submit" name="inp_submit" class="button_submit" value="LOGIN"></a>
+
+=================================================================
+main login
+
+if (isset($_GET["login"])) {
+        $npm = $_POST["inp_npm"];
+        $pass = $_POST["inp_pass"];
+        // echo $npm, $pass;
+		$cl->loginMember($npm, $pass); 
+	} else if (isset($_GET["buat"])) {
+		$cl->viewRegister(); 
+	} else {
+        $cl->viewLogin();
+    }
+
+================================================================
+
+*{
+                margin: 0px;
+                padding: 0px;
+                border: 0px;               
+            }
+            body{
+                font-family: 'Poppins', sans-serif;
+                box-sizing: border-box;
+            }
+            table{
+                border-collapse: collapse;
+	            border-spacing: 0;
+            }
+            .sidebar{
+                width: 20%;
+                height: 100%;
+                position: fixed;
+                background: linear-gradient(120deg,#c97200, #ff3300);
+                top: 0;
+                left: 0;
+
+            }
+            .sidebar h1{
+                font-size: 20px;
+                text-align: center;
+                padding: 30px 0;
+            }
+            .sidebar ul li{
+                list-style: none;
+                width: 100%;
+                padding: 20px;
+            }
+            .sidebar ul li a{
+                text-decoration: none;
+                color: white;
+            }
+            .sidebar ul li a:hover{
+                color: white;
+            }
+            .menu:hover{
+                background-color: red;
+            }
+            .main{
+                margin-left: 20%;
+                /* background-color: yellow; */
+                padding: 10px;
+            }
+            .main h1{
+                font-size: 50px;
+                text-align: center;
+                padding: 10px 0;
+                background-color: green;
+            }
+            .main table{
+                margin: 10px 0;
+                width: 100%;
+                
+                border: none;
+            }
+            .main table tr td{
+                padding: 4px;
+            }
+            .tab_sampulbuku{
+                width: 15%;
+                /* border-right: 1px  solid black; */
+            }
+            .tab_judulbuku{
+                text-align: center;
+                /* border: 1px  solid black; */
+            }
+            .tab_pinjambuku{
+                width: 10%;
+                text-align: center;
+                /* border: 1px  solid black; */
+            }
+            .tab_selengkapnya{
+                width: 10%;
+                text-align: center;
+                /* border: 1px  solid black; */
+            }
+            .tab_penulisbuku{
+                text-align: center;
+                border-top: 1px  solid black;
+            }
+            .tab_space{
+                height: 30px;
+            }
+            button{
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+================================================================
+
+ <?php
+                date_default_timezone_set('Asia/Jakarta');
+                $dbfr = new DateTime(date("2022-07-13"));
+                $dnow = new DateTime(date("Y-m-d"));
+                // $sls = $dnow->diff($dbfr);
+                echo $dbfr->format("d-m-Y");
+                // echo $dnow->format("d-m-Y");
+                // echo $sls->d;
+            ?>
+
+echo 'Tanggal sekarang: ' . date('d-m-Y H:i:s', strtotime('now'));
+                echo 'Akhir Februari: ' . date('d-m-Y', strtotime('last day of february 2022'));
+                echo 'Batas submit laporan: ' . date('d-m-Y H:i:s', strtotime('3 days'));
+                echo 'Jatuh tempo: ' . date('d-m-Y H:i:s', strtotime('next friday 12:00'));
+                echo '24 jam terakhir: ' . date('d-m-Y H:i:s', strtotime('-24 hours'));
+
+================================================================
+
+$tgl_dateline = "15-04-2007"; 
+$tgl_kembali = "19-04-2007"; 
+
+// Mengurai tanggal detline 
+$tgl_dateline_pcs = explode ("-", $tgl_dateline); 
+$tgl_dateline_pcs = $tgl_dateline_pcs[2]."-". 
+$tgl_dateline_pcs[1]."-".$tgl_dateline_pcs[0]; 
+// Mengurai tanggal kembali 
+$tgl_kembali_pcs = explode ("-", $tgl_kembali); 
+$tgl_kembali_pcs = $tgl_kembali_pcs[2]."-". 
+$tgl_kembali_pcs[1]."-".$tgl_kembali_pcs[0]; 
+$selisih = strtotime ($tgl_kembali_pcs) – 
+strtotime ($tgl_dateline_pcs); 
+$selisih = $selisih / 86400; 
+
+================================================================
+
+<form action="" method="post">
+                <label for="">Waktu Kembali</label>
+                <input type="number" name="nm" min="1" max="7">
+                <input type="submit" name="sb">
+            </form>
+                <?php
+                if (isset($_POST["sb"])) {
+                
+                date_default_timezone_set('Asia/Jakarta');
+                $dateNow = new DateTime(date("Y-m-d")); 
+                $dateNow = $dateNow->format("Y-m-d");
+                $dateNowStr = strtotime($dateNow);
+                $time = $_POST["nm"];
+                // $time = '+'.$time.'day';
+                $dateTime = date("Y-m-d", strtotime("+".$time."day", $dateNowStr));
+                echo '<br>' .$dateNow. '<br>';
+                echo $dateTime. '<br>';
+                $deadline = "2022-06-29"; 
+
+                // Mengurai dateNow 
+                $dateNow_cvt = explode ("-", $dateNow); 
+                $dateNow_cvt = $dateNow_cvt[2]."-". 
+                $dateNow_cvt[1]."-".$dateNow_cvt[0]; 
+                // Mengurai deadline 
+                $deadline_cvt = explode ("-", $deadline); 
+                $deadline_cvt = $deadline_cvt[2]."-". 
+                $deadline_cvt[1]."-".$deadline_cvt[0]; 
+                $selisih = strtotime ($dateNow) - strtotime ($deadline);
+
+                $selisih = $selisih / 86400;
+
+                echo "Tenggat : $deadline, pengembalian : $dateNow_cvt"; 
+                echo "<br>Terlambat ".floor ($selisih)." hari."; 
+                
+                }
+            ?>
+
+===============================================
+<form action="" method="post">
+                <label for="">Waktu Kembali</label>
+                <input type="number" name="nm" min="1" max="7">
+                <input type="submit" name="sb">
+            </form>
+                <?php
+                if (isset($_POST["sb"])) {
+                
+                date_default_timezone_set('Asia/Jakarta');
+                $dateNow = new DateTime(date("Y-m-d")); 
+                $dateNow = $dateNow->format("Y-m-d");
+                $dateNowStr = strtotime($dateNow);
+                $time = $_POST["nm"];
+                // $time = '+'.$time.'day';
+                $dateTime = date("Y-m-d", strtotime("+".$time."day", $dateNowStr));
+                echo '<br>' .$dateNow. '<br>';
+                echo $dateTime. '<br>';
+                $deadline = "2022-06-29"; 
+
+                // Mengurai dateNow 
+                $dateNow_cvt = explode ("-", $dateNow); 
+                $dateNow_cvt = $dateNow_cvt[2]."-". 
+                $dateNow_cvt[1]."-".$dateNow_cvt[0]; 
+                // Mengurai deadline 
+                $deadline_cvt = explode ("-", $deadline); 
+                $deadline_cvt = $deadline_cvt[2]."-". 
+                $deadline_cvt[1]."-".$deadline_cvt[0]; 
+                $selisih = strtotime ($dateNow) - strtotime ($deadline);
+
+                $selisih = $selisih / 86400;
+
+                echo "Tenggat : $deadline, pengembalian : $dateNow_cvt"; 
+                echo "<br>Terlambat ".floor ($selisih)." hari."; 
+                
+                }
+            ?> 
